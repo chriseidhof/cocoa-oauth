@@ -63,7 +63,7 @@
  encode them yourself. The contents of the parameters dictionary must be string
  key/value pairs. You are contracted to consume the NSURLRequest *immediately*.
  */
-+ (NSURLRequest *)URLRequestForPath:(NSString *)path
++ (NSMutableURLRequest *)URLRequestForPath:(NSString *)path
                       GETParameters:(NSDictionary *)parameters
                                host:(NSString *)host
                         consumerKey:(NSString *)consumerKey
@@ -75,7 +75,7 @@
  Performs the same operation as the above method but allows a customizable URL
  scheme, e.g. HTTPS.
  */
-+ (NSURLRequest *)URLRequestForPath:(NSString *)path
++ (NSMutableURLRequest *)URLRequestForPath:(NSString *)path
                       GETParameters:(NSDictionary *)parameters
                              scheme:(NSString *)scheme
                                host:(NSString *)host
@@ -89,13 +89,14 @@
  data will be sent as form URL encoded. Restrictions on the arguments to this
  method are the same as the GET request methods.
  */
-+ (NSURLRequest *)URLRequestForPath:(NSString *)path
++ (NSMutableURLRequest *)URLRequestForPath:(NSString *)path
                      POSTParameters:(NSDictionary *)parameters
                                host:(NSString *)host
                         consumerKey:(NSString *)consumerKey
                      consumerSecret:(NSString *)consumerSecret
                         accessToken:(NSString *)accessToken
-                        tokenSecret:(NSString *)tokenSecret;
+                        tokenSecret:(NSString *)tokenSecret
+                    oauthParameters:(NSDictionary*)oauthParameters;
 @end
 
 /*
